@@ -1,11 +1,6 @@
-import axios from 'axios';
+import apiClient from '../api/apiClient';
 
-const apiBaseUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
-
-export const http = axios.create({
-  baseURL: apiBaseUrl,
-  withCredentials: true,
-});
+export const http = apiClient;
 
 export type ApiHealth = {
   status: string;

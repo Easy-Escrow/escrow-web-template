@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "rest_framework_simplejwt.token_blacklist",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -79,6 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {"min_length": 8},
     },
     {
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
@@ -123,6 +126,14 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
+    "DEFAULT_THROTTLE_CLASSES": (
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ),
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": os.environ.get("THROTTLE_ANON", "20/min"),
+        "user": os.environ.get("THROTTLE_USER", "100/min"),
+    },
 }
 
 SIMPLE_JWT = {
@@ -130,6 +141,9 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=int(os.environ.get("JWT_REFRESH_DAYS", "1"))),
     "SIGNING_KEY": os.environ.get("JWT_SIGNING_KEY", SECRET_KEY),
     "AUTH_HEADER_TYPES": ("Bearer",),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
 }
 
 LOGGING = {
@@ -145,3 +159,5 @@ LOGGING = {
         "level": os.environ.get("DJANGO_LOG_LEVEL", "INFO"),
     },
 }
+
+AUTH_USER_MODEL = "accounts.User"

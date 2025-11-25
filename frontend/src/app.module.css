@@ -20,6 +20,34 @@
   padding: 0;
 }
 
+.header button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background: #ebebeb;
+}
+
+.userMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #312e81;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .main {
   flex: 1;
   padding: 2rem;

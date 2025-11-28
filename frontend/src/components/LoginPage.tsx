@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { type Location, useLocation, useNavigate } from 'react-router-dom';
 
-import { useAuth } from '../auth/AuthProvider';
+import { useAuth } from '../auth/authHooks';
 
 export function LoginPage() {
   const [email, setEmail] = useState('');

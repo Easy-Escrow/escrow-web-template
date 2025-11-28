@@ -1,6 +1,6 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 
-import { useAuth } from './auth/AuthProvider';
+import { useAuth } from './auth/authHooks';
 
 import styles from './app.module.css';
 

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import App from '../App';
-import { RequireAuth } from '../auth/RequireAuth';
+import { RequireAuth } from '../auth/components/RequireAuth';
 import { DashboardPage } from '../components/DashboardPage';
 import { LoginPage } from '../components/LoginPage';
 import { SettingsPage } from '../components/SettingsPage';

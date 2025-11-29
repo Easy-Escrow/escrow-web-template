@@ -2,9 +2,9 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { useAuth } from '../authHooks';
-import { AuthLoading } from './AuthLoading';
-import { AccessDenied } from './AccessDenied';
+import { useAuth } from '@/auth/authHooks';
+import { AuthLoading } from '@/auth/components/AuthLoading';
+import { AccessDenied } from '@/auth/components/AccessDenied';
 
 interface RequireAuthProps {
     children: JSX.Element;

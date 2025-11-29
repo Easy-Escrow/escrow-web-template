@@ -1,8 +1,8 @@
 // src/auth/pages/LoginPage.tsx
 import { useLocation, useNavigate, type Location } from 'react-router-dom';
 
-import { useLoginForm } from '../authHooks';
-import { LoginForm } from '../components/LoginForm';
+import { useLoginForm } from '@/auth/authHooks';
+import { LoginForm } from '@/auth/components/LoginForm';
 
 export function LoginPage() {
     const navigate = useNavigate();

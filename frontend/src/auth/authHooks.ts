@@ -9,7 +9,7 @@ import {
     FormEvent,
 } from 'react';
 
-import type { AuthContextValue, AuthTokens, AuthUser } from './authTypes';
+import type { AuthContextValue, AuthTokens, AuthUser } from '@/auth/authTypes';
 import {
     clearTokens as apiClearTokens,
     getRefreshToken,
@@ -21,7 +21,7 @@ import {
     loginRequest,
     logoutRequest,
     refreshTokenRequest,
-} from '../api/auth';
+} from '@/api/auth';
 
 export const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 

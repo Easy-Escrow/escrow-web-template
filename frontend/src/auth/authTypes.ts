@@ -1,5 +1,5 @@
 // src/auth/auth.types.ts
-import type { AuthTokens, AuthUser } from '../api/auth';
+import type { AuthTokens, AuthUser } from '@/api/auth';
 
 export interface AuthContextValue {
     user: AuthUser | null;

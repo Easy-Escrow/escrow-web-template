@@ -1,8 +1,8 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 
-import { useAuth } from './auth/authHooks';
+import { useAuth } from '@/auth/authHooks';
 
-import styles from './app.module.css';
+import styles from '@/app.module.css';
 
 export function App() {
   const navigate = useNavigate();

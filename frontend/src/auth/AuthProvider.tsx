@@ -1,6 +1,6 @@
 // src/auth/AuthProvider.tsx
 import type { ReactNode } from 'react';
-import { AuthContext, useAuthProvider } from './authHooks';
+import { AuthContext, useAuthProvider } from '@/auth/authHooks';
 
 interface AuthProviderProps {
     children: ReactNode;

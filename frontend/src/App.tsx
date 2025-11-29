@@ -25,6 +25,12 @@ export function App() {
                   <Link to="/">Dashboard</Link>
                 </li>
                 <li>
+                  <Link to="/broker/escrows">Escrows</Link>
+                </li>
+                <li>
+                  <Link to="/co-broker/invitations">Invitations</Link>
+                </li>
+                <li>
                   <Link to="/settings">Settings</Link>
                 </li>
                 <li>

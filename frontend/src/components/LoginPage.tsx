@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { type Location, useLocation, useNavigate } from 'react-router-dom';
 
-import { useAuth } from '../auth/authHooks';
+import { useAuth } from '@/auth/authHooks';
 
 export function LoginPage() {
   const [email, setEmail] = useState('');
@@ -21,7 +21,8 @@ export function LoginPage() {
     try {
       await login(email, password);
       navigate(from, { replace: true });
-    } catch (_err) {
+    } catch (err) {
+        console.error(err);
       setError('Invalid credentials');
     } finally {
       setSubmitting(false);

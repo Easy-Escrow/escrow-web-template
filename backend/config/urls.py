@@ -16,4 +16,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("health/", health_check, name="health"),
     path("", include("accounts.urls")),
+    path("", include("escrows.urls")),
 ]

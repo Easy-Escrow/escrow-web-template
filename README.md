@@ -78,3 +78,5 @@ Shut everything down with `make dev-down`.
 - `cd frontend && npm run build` – Type-safe production build via Vite
 
 These commands are also executed inside CI to keep both apps green from day one.
+
+See `docs/TESTING.md` for end-to-end setup steps and manual API/UX verification notes for the escrow flows.

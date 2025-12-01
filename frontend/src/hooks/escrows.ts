@@ -9,6 +9,7 @@ import {
   listParties,
   updateParty,
   type Escrow,
+  type CreateEscrowPayload,
   type Party,
 } from '@/api/escrows';
 import { inviteBroker, listBrokers, respondToInvitation } from '@/api/brokers';
@@ -37,7 +38,7 @@ export function useEscrow(escrowId?: number) {
 export function useCreateEscrow() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: createEscrow,
+    mutationFn: (payload: CreateEscrowPayload) => createEscrow(payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['escrows'] });
     },

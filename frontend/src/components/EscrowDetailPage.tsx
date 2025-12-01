@@ -21,6 +21,18 @@ export function EscrowDetailPage() {
         <>
           <p>{data.description || 'No description available.'}</p>
           <div className={styles.badge}>Status: {data.status}</div>
+          <div className={styles.card}>
+            <h3>Deal summary</h3>
+            <p>
+              Role: <strong>{data.participant_role}</strong> | Moneda: <strong>{data.currency}</strong> | Tipo:{' '}
+              <strong>{data.transaction_type}</strong>
+            </p>
+            <p>
+              Propiedad: <strong>{data.property_type}</strong> — Valor: <strong>{data.currency} {data.property_value}</strong>
+            </p>
+            <p>Dirección: {data.property_address}</p>
+            <p>Fecha estimada de cierre: {data.closing_date}</p>
+          </div>
           <EscrowWorkspace escrowId={escrowId} />
         </>
       )}

@@ -60,3 +60,310 @@
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
+/* New transaction form styles */
+.transactionPage {
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f5f7fb;
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+.transactionHeader {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+}
+
+.transactionNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logoMark {
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.transactionCard {
+  background: #fff;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.cardHeader h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+
+.cardHeader p {
+  margin-top: 0.3rem;
+  color: #475569;
+}
+
+.transactionForm {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.errorSummary {
+  border: 1px solid #fca5a5;
+  background: #fef2f2;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.formField,
+.formFieldFull {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.formFieldFull {
+  width: 100%;
+}
+
+.formRow3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  background: #fff;
+  color: #0f172a;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.fieldHint {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.fieldError {
+  color: #b91c1c;
+  min-height: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.roleGuidance {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  color: #1e293b;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+}
+
+.transactionDetails {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.25rem;
+  background: #f8fafc;
+}
+
+.transactionDetails legend {
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+
+.typeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.commissionOverview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.commissionSummary {
+  background: linear-gradient(135deg, #ede9fe, #eef2ff);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #cbd5ff;
+}
+
+.commissionTotal {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.commissionNote {
+  margin: 0.25rem 0 0;
+  color: #475569;
+}
+
+.brokerSplitGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.brokerCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.brokerPercentage,
+.brokerAmount {
+  margin: 0.2rem 0;
+  color: #334155;
+  font-weight: 600;
+}
+
+.brokerShareMessage {
+  margin: 0;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 0.75rem;
+  border: 1px dashed #cbd5e1;
+  color: #0f172a;
+}
+
+.fileUpload {
+  margin-top: 0.5rem;
+}
+
+.fileDropzone {
+  position: relative;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.fileDropzone input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #475569;
+}
+
+.fileName {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.fileHint span {
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.fileHelper {
+  margin: 0.35rem 0 0;
+  color: #64748b;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.outlineButton {
+  border: 1px solid #cbd5e1;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
+  background: #fff;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.transactionFooter {
+  text-align: center;
+  color: #475569;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .transactionCard {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .transactionHeader {
+    padding: 1rem;
+  }
+
+  .transactionNav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

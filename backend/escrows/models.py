@@ -13,9 +13,65 @@ class EscrowStatus(models.TextChoices):
     LOCKED = "LOCKED", "Locked"
 
 
+class PartyRole(models.TextChoices):
+    BUYER = "BUYER", "Buyer"
+    SELLER = "SELLER", "Seller"
+    BROKER = "BROKER", "Broker"
+
+
+class Currency(models.TextChoices):
+    USD = "USD", "USD"
+    MXN = "MXN", "MXN"
+
+
+class TransactionType(models.TextChoices):
+    COMMISSION = "COMMISSION", "Comisión inmobiliaria"
+    DUE_DILIGENCE = "DUE_DILIGENCE", "Due diligence"
+    HIDDEN_DEFECTS = "HIDDEN_DEFECTS", "Vicios ocultos"
+
+
+class PropertyType(models.TextChoices):
+    HOUSE = "HOUSE", "Casa"
+    APARTMENT = "APARTMENT", "Departamento"
+    LAND = "LAND", "Terreno"
+    COMMERCIAL = "COMMERCIAL", "Local comercial"
+    OFFICE = "OFFICE", "Oficina"
+
+
+class PartySide(models.TextChoices):
+    BUYER = "BUYER", "Buyer"
+    SELLER = "SELLER", "Seller"
+    BOTH = "BOTH", "Both"
+
+
 class Escrow(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    participant_role = models.CharField(max_length=20, choices=PartyRole.choices, default=PartyRole.BUYER)
+    currency = models.CharField(max_length=5, choices=Currency.choices, default=Currency.USD)
+    transaction_type = models.CharField(
+        max_length=20, choices=TransactionType.choices, default=TransactionType.COMMISSION
+    )
+    property_type = models.CharField(max_length=20, choices=PropertyType.choices, default=PropertyType.HOUSE)
+    property_value = models.DecimalField(max_digits=14, decimal_places=2, default=Decimal("0"))
+    closing_date = models.DateField(null=True, blank=True)
+    property_address = models.TextField(blank=True)
+    commission_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    commission_payer = models.CharField(max_length=10, choices=PartySide.choices, blank=True)
+    commission_payment_date = models.DateField(null=True, blank=True)
+    broker_a_name = models.CharField(max_length=255, blank=True)
+    broker_a_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    broker_b_name = models.CharField(max_length=255, blank=True)
+    broker_b_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    due_diligence_scope = models.TextField(blank=True)
+    due_diligence_days = models.PositiveIntegerField(null=True, blank=True)
+    due_diligence_deadline = models.DateField(null=True, blank=True)
+    due_diligence_fee = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    hidden_defects_description = models.TextField(blank=True)
+    retention_amount = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    resolution_days = models.PositiveIntegerField(null=True, blank=True)
+    responsible_party = models.CharField(max_length=10, choices=PartySide.choices, blank=True)
+    agreement_upload = models.FileField(upload_to="agreements/", null=True, blank=True)
     status = models.CharField(
         max_length=20,
         choices=EscrowStatus.choices,
@@ -34,12 +90,6 @@ class Escrow(models.Model):
 
     def __str__(self) -> str:  # pragma: no cover - display helper
         return self.name
-
-
-class PartyRole(models.TextChoices):
-    BUYER = "BUYER", "Buyer"
-    SELLER = "SELLER", "Seller"
-    LENDER = "LENDER", "Lender"
 
 
 class Party(models.Model):

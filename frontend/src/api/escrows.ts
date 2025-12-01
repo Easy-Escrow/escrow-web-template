@@ -47,6 +47,29 @@ export interface Escrow {
   id: number;
   name: string;
   description: string;
+  participant_role: string;
+  currency: string;
+  transaction_type: string;
+  property_type: string;
+  property_value: string;
+  closing_date: string | null;
+  property_address: string;
+  commission_percentage?: string | null;
+  commission_payer?: string | null;
+  commission_payment_date?: string | null;
+  broker_a_name?: string | null;
+  broker_a_percentage?: string | null;
+  broker_b_name?: string | null;
+  broker_b_percentage?: string | null;
+  due_diligence_scope?: string | null;
+  due_diligence_days?: number | null;
+  due_diligence_deadline?: string | null;
+  due_diligence_fee?: string | null;
+  hidden_defects_description?: string | null;
+  retention_amount?: string | null;
+  resolution_days?: number | null;
+  responsible_party?: string | null;
+  agreement_upload?: string | null;
   status: string;
   created_by: { id: number; email: string };
   created_at: string;
@@ -54,6 +77,34 @@ export interface Escrow {
   parties: Party[];
   broker_representations: BrokerRepresentation[];
   commission_pool?: CommissionPool;
+}
+
+export interface CreateEscrowPayload {
+  name: string;
+  description?: string;
+  participant_role: string;
+  currency: string;
+  transaction_type: string;
+  property_type: string;
+  property_value: string | number;
+  closing_date: string;
+  property_address: string;
+  commission_percentage?: string | number;
+  commission_payer?: string;
+  commission_payment_date?: string;
+  broker_a_name?: string;
+  broker_a_percentage?: string | number;
+  broker_b_name?: string;
+  broker_b_percentage?: string | number;
+  due_diligence_scope?: string;
+  due_diligence_days?: number | string;
+  due_diligence_deadline?: string;
+  due_diligence_fee?: string | number;
+  hidden_defects_description?: string;
+  retention_amount?: string | number;
+  resolution_days?: number | string;
+  responsible_party?: string;
+  agreement_upload?: File | null;
 }
 
 export async function listEscrows(params?: { status?: string }) {
@@ -66,8 +117,17 @@ export async function getEscrow(id: number) {
   return response.data;
 }
 
-export async function createEscrow(payload: { name: string; description?: string }) {
-  const response = await apiClient.post<Escrow>('/escrows/', payload);
+export async function createEscrow(payload: CreateEscrowPayload) {
+  const formData = new FormData();
+  Object.entries(payload).forEach(([key, value]) => {
+    if (value !== undefined && value !== null) {
+      formData.append(key, value as any);
+    }
+  });
+
+  const response = await apiClient.post<Escrow>('/escrows/', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
   return response.data;
 }
 

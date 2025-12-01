@@ -6,7 +6,7 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 
 from accounts.models import User
-from .models import BrokerRole, BrokerStatus, EscrowStatus, PartyRole
+from .models import BrokerRole, BrokerStatus, EscrowStatus, PartyRole, TransactionType
 
 
 class EscrowAPITests(TestCase):
@@ -26,7 +26,24 @@ class EscrowAPITests(TestCase):
     def create_escrow(self, client: APIClient):
         response = client.post(
             "/escrows/",
-            {"name": "Test Deal", "description": "Downtown property"},
+            {
+                "name": "Test Deal",
+                "description": "Downtown property",
+                "participant_role": PartyRole.BROKER,
+                "currency": "USD",
+                "transaction_type": TransactionType.COMMISSION,
+                "property_type": "HOUSE",
+                "property_value": "500000.00",
+                "closing_date": "2025-01-12",
+                "property_address": "123 Main St",
+                "commission_percentage": "3.0",
+                "commission_payer": "BUYER",
+                "commission_payment_date": "2025-01-15",
+                "broker_a_name": "Ana López",
+                "broker_a_percentage": "60",
+                "broker_b_name": "Luis Martínez",
+                "broker_b_percentage": "40",
+            },
             format="json",
         )
         self.assertEqual(response.status_code, 201)

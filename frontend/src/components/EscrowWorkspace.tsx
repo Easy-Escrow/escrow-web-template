@@ -98,7 +98,7 @@ function PartyPanel({ escrowId }: { escrowId: number }) {
           >
             <option value="BUYER">Buyer</option>
             <option value="SELLER">Seller</option>
-            <option value="LENDER">Lender</option>
+            <option value="BROKER">Broker</option>
           </select>
         </div>
         <button type="submit">Add party</button>

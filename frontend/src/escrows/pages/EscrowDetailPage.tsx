@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 
-import styles from './escrows.module.css';
-import { EscrowWorkspace } from './EscrowWorkspace';
+import styles from '../../components/escrows.module.css';
+import { EscrowWorkspace } from '../components/EscrowWorkspace';
 import { useEscrow } from '@/hooks/escrows';
 
 export function EscrowDetailPage() {

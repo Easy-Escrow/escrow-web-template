@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { fetchHealth } from '../lib/http';
+import { fetchHealth } from '@/lib/http';
 
 export function DashboardPage() {
   const { data, isLoading, error } = useQuery({

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import styles from './escrows.module.css';
+import styles from '../../components/escrows.module.css';
 import { useEscrows } from '@/hooks/escrows';
 
 export function BrokerEscrowsPage() {

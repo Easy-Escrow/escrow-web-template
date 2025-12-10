@@ -1,4 +1,4 @@
-import styles from './escrows.module.css';
+import styles from '../../components/escrows.module.css';
 import { useEscrows, useRespondToBrokerInvitation } from '@/hooks/escrows';
 import { useAuth } from '@/auth/authHooks';
 

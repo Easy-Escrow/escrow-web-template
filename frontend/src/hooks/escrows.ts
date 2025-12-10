@@ -17,7 +17,9 @@ import {
   getCommissionPool,
   lockCommissionPool,
   updateCommissionPool,
+    type UpdateCommissionPoolPayload,
 } from '@/api/commissionPools';
+
 import type { BrokerRepresentation, CommissionPool } from '@/api/escrows';
 
 export function useEscrows(filters?: { status?: string }) {
@@ -143,10 +145,8 @@ export function useCommissionPool(escrowId?: number) {
 
 export function useUpdateCommissionPool(escrowId: number) {
   const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (
-      payload: Partial<Pick<CommissionPool, 'total_amount' | 'shares'>>,
-    ) => updateCommissionPool(escrowId, payload),
+  return useMutation<CommissionPool, Error, UpdateCommissionPoolPayload>({
+    mutationFn: (payload) => updateCommissionPool(escrowId, payload),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['escrow', escrowId, 'commission-pool'] });
       queryClient.invalidateQueries({ queryKey: ['escrow', escrowId, 'brokers'] });

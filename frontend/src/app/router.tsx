@@ -2,13 +2,13 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import App from '../App';
 import { RequireAuth } from '@/auth/components/RequireAuth';
-import { DashboardPage } from '@/components/DashboardPage';
+import { DashboardPage } from '@/escrows/pages/DashboardPage';
 import { LoginPage } from '@/components/LoginPage';
-import { SettingsPage } from '@/components/SettingsPage';
-import { BrokerEscrowsPage } from '@/components/BrokerEscrowsPage';
-import { EscrowWizardPage } from '@/components/EscrowWizardPage';
-import { EscrowDetailPage } from '@/components/EscrowDetailPage';
-import { CoBrokerInvitationsPage } from '@/components/CoBrokerInvitationsPage';
+import { SettingsPage } from '@/escrows/pages/SettingsPage';
+import { BrokerEscrowsPage } from '@/escrows/pages/BrokerEscrowsPage';
+import { EscrowWizardPage } from '@/escrows/pages/EscrowWizardPage';
+import { EscrowDetailPage } from '@/escrows/pages/EscrowDetailPage';
+import { CoBrokerInvitationsPage } from '@/escrows/pages/CoBrokerInvitationsPage';
 
 export const router = createBrowserRouter([
   {

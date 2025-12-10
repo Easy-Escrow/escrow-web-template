@@ -26,6 +26,7 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   return children;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function withRoleGuard(Component: React.ComponentType, roles: string[]) {
   return function GuardedComponent(props: Record<string, unknown>) {
     return (

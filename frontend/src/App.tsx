@@ -28,6 +28,9 @@ export function App() {
                   <Link to="/broker/escrows">Escrows</Link>
                 </li>
                 <li>
+                  <Link to="/compliance">Compliance</Link>
+                </li>
+                <li>
                   <Link to="/co-broker/invitations">Invitations</Link>
                 </li>
                 <li>

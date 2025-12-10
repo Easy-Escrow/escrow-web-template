@@ -43,6 +43,7 @@ export function RequireAuth({
 }
 
 // HOC for quick role-guarded components
+// eslint-disable-next-line react-refresh/only-export-components
 export function withRoleGuard<P extends object>(
     Component: React.ComponentType<P>,
     roles: string[],

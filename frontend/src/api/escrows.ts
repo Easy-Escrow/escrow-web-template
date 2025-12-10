@@ -120,8 +120,13 @@ export async function getEscrow(id: number) {
 export async function createEscrow(payload: CreateEscrowPayload) {
   const formData = new FormData();
   Object.entries(payload).forEach(([key, value]) => {
-    if (value !== undefined && value !== null) {
-      formData.append(key, value as any);
+      if (value === undefined || value === null) return;
+
+      if (value instanceof Blob) {
+          // File / Blob fields
+          formData.append(key, value);
+      } else {
+      formData.append(key, String(value));
     }
   });
 

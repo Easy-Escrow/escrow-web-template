@@ -8,7 +8,6 @@ import {
   listEscrows,
   listParties,
   updateParty,
-  type Escrow,
   type CreateEscrowPayload,
   type Party,
 } from '@/api/escrows';

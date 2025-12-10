@@ -5,6 +5,7 @@ import {
     useState,
 } from 'react';
 import { useCreateEscrow } from '@/hooks/escrows';
+import {AxiosError} from "axios";
 
 export const defaultForm = {
     name: '',
@@ -142,10 +143,11 @@ export function useEscrowWizardForm(
         try {
             const result = await createEscrow.mutateAsync(form);
             if (onSuccess) onSuccess(result.id);
-        } catch (err: any) {
-            const data = err?.response?.data;
+        } catch (err: unknown) {
+            const axiosError = err as AxiosError<ErrorBag> | undefined;
+            const data = axiosError?.response?.data;
             if (data) {
-                setErrors(data as ErrorBag);
+                setErrors(data);
             }
         }
     };

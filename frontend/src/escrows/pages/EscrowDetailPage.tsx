@@ -27,14 +27,18 @@ export function EscrowDetailPage() {
               Role: <strong>{data.participant_role}</strong> | Moneda: <strong>{data.currency}</strong> | Tipo:{' '}
               <strong>{data.transaction_type}</strong>
             </p>
-            <p>
-              Propiedad: <strong>{data.property_type}</strong> — Valor: <strong>{data.currency} {data.property_value}</strong>
-            </p>
-            <p>Dirección: {data.property_address}</p>
-            <p>Fecha estimada de cierre: {data.closing_date}</p>
+          <p>
+            Propiedad: <strong>{data.property_type}</strong> — Valor: <strong>{data.currency} {data.property_value}</strong>
+          </p>
+          <p>Dirección: {data.property_address}</p>
+          <p>Fecha estimada de cierre: {data.closing_date}</p>
+          <div className={styles.actions}>
+            <Link to={`/escrows/${escrowId}/kyc`}>KYC</Link>
+            <Link to={`/escrows/${escrowId}/documents`}>Documents</Link>
           </div>
-          <EscrowWorkspace escrowId={escrowId} />
-        </>
+        </div>
+        <EscrowWorkspace escrowId={escrowId} />
+      </>
       )}
     </section>
   );

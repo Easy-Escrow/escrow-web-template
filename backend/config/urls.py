@@ -17,4 +17,6 @@ urlpatterns = [
     path("health/", health_check, name="health"),
     path("", include("accounts.urls")),
     path("", include("escrows.urls")),
+    path("", include("kyc.urls")),
+    path("", include("documents.urls")),
 ]

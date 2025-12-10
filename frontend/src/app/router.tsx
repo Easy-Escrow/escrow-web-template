@@ -9,6 +9,9 @@ import { BrokerEscrowsPage } from '@/escrows/pages/BrokerEscrowsPage';
 import { EscrowWizardPage } from '@/escrows/pages/EscrowWizardPage';
 import { EscrowDetailPage } from '@/escrows/pages/EscrowDetailPage';
 import { CoBrokerInvitationsPage } from '@/escrows/pages/CoBrokerInvitationsPage';
+import { EscrowKycPage } from '@/escrows/pages/EscrowKycPage';
+import { EscrowDocumentsPage } from '@/escrows/pages/EscrowDocumentsPage';
+import { ComplianceDashboardPage } from '@/escrows/pages/ComplianceDashboardPage';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +32,14 @@ export const router = createBrowserRouter([
         element: <RequireAuth><EscrowDetailPage /></RequireAuth>,
       },
       {
+        path: 'escrows/:id/kyc',
+        element: <RequireAuth><EscrowKycPage /></RequireAuth>,
+      },
+      {
+        path: 'escrows/:id/documents',
+        element: <RequireAuth><EscrowDocumentsPage /></RequireAuth>,
+      },
+      {
         path: 'co-broker/invitations',
         element: <RequireAuth><CoBrokerInvitationsPage /></RequireAuth>,
       },
@@ -36,6 +47,12 @@ export const router = createBrowserRouter([
         path: 'settings',
         element: <RequireAuth roles={["ADMIN", "OFFICER"]}>
           <SettingsPage />
+        </RequireAuth>,
+      },
+      {
+        path: 'compliance',
+        element: <RequireAuth roles={["ADMIN", "OFFICER"]}>
+          <ComplianceDashboardPage />
         </RequireAuth>,
       },
     ],
